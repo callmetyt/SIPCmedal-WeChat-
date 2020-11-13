@@ -1,0 +1,80 @@
+{
+	"pages": [{
+		"path":"pages/home/home",
+		"style":{
+			"navigationBarTitleText":"SIPC勋章墙-个人中心"
+		}
+	},{
+		"path":"pages/home/infoChange",
+		"style":{
+			"navigationBarTitleText":"SIPC勋章墙-个人中心-消息修改"
+		}
+	},{
+		"path": "pages/login/login",
+		"style": {
+			"navigationBarTitleText": "SIPC勋章墙"
+		}
+	},{
+		"path":"pages/rank/rank",
+		"style":{
+			"navigationBarTitleText":"SIPC勋章墙-排名"
+		}
+	},{
+		"path":"pages/medal/medalSquare",
+		"style":{
+			"navigationBarTitleText":"SIPC勋章墙-勋章广场"
+		}
+	},{
+		"path":"pages/medal/medalDetail",
+		"style":{
+			"navigationBarTitleText":"SIPC勋章墙-勋章详情"
+		}
+	},{
+		"path":"pages/msg/msg",
+		"style":{
+			"navigationBarTitleText":"SIPC勋章墙-消息中心"
+		}
+	},{
+		"path":"pages/msg/detail",
+		"style":{
+			"navigationBarTitleText":"SIPC勋章墙-消息中心-详细内容"
+		}
+	},{
+		"path":"pages/hasMedal",
+		"style":{
+			"navigationBarTitleText":"SIPC勋章墙"
+		}
+	}],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#007AFF",
+		"backgroundColor": "#FFFFFF"
+	},
+	"tabBar":{
+		"color":"#00000",
+		"selectedColor":"#007AFF",
+		"backgroundColor":"#D3D3D3",
+		"borderStyle":"black",
+		"list":[
+			{
+				"pagePath":"pages/rank/rank",
+				"text":"排名",
+				"iconPath":"static/tabbar/rank.png",
+				"selectedIconPath":"static/tabbar/ranked.png"
+			},
+			{
+				"pagePath":"pages/medal/medalSquare",
+				"text":"勋章广场",
+				"iconPath":"static/tabbar/medal.png",
+				"selectedIconPath":"static/tabbar/medaled.png"
+			},
+			{
+				"pagePath":"pages/home/home",
+				"text":"个人中心",
+				"iconPath":"static/tabbar/home.png",
+				"selectedIconPath":"static/tabbar/homeed.png"
+			}
+		]
+	}
+}
