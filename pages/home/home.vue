@@ -1,11 +1,11 @@
 <template>
 	<view class="container">
 		<view class="base">
-			<image :src="avatar" mode="aspectFit" class="avatar"></image>
+			<image :src="avatar?avatar:'../../static/User%20Secret.png'" mode="aspectFit" class="avatar"></image>
 			<view class="warp">
 				<view class="nickName">{{userName}}</view>
 				<view class="changeInfo">
-					<button type="default" class="flex align-center" @click="toOther('infoChange')">
+					<button class="cu-btn flex align-center" @click="toOther('infoChange')">
 						<image src="../../static/write.png" mode="aspectFit"></image>
 						<text>修改个人信息</text>
 					</button>
@@ -154,12 +154,16 @@
 			.nickName{
 				text-align: center;
 				font-size: 50rpx;
+				font-weight: bold;
+				letter-spacing: 3rpx;
+				margin-top: 20rpx;
 			}
 			.changeInfo{
 				display: flex;
-				margin-top: 80rpx;
+				margin-top: 60rpx;
 				button{
 					font-size: 35rpx;
+					color: #000;
 					image{
 						width: 40rpx;
 						height: 40rpx;
@@ -171,15 +175,16 @@
 	.notLogin{
 		padding: 50rpx;
 		font-size: 50rpx;
+		letter-spacing: 5rpx;
 		.link{
 			color: #007AFF;
 		}
 	}
 	.body{
 		.info{
-			border-top: 1rpx solid #000;
-			border-bottom: 1rpx solid #000;
-			padding: 50rpx 0;
+			border-top: 1rpx solid rgba(0,0,0,0.7);
+			border-bottom: 1rpx solid rgba(0,0,0,0.7);
+			padding: 30rpx 0;
 			.warp{
 				image{
 					height: 80rpx;
@@ -187,24 +192,27 @@
 				}
 				text{
 					margin-left: 30rpx;
-					font-size: 100rpx;
+					font-size: 80rpx;
 					color: #007AFF;
 				}
 			}
 			text{
+				margin-top: 15rpx;
+				letter-spacing: 3rpx;
 				display: block;
-				font-size: 50rpx;
+				font-size: 40rpx;
 				text-align: center;
 			}
 		}
 		.msg,.haveMedal{
-			border-bottom: 1rpx solid #000;
-			padding: 20rpx;
-			font-size: 50rpx;
+			border-bottom: 1rpx solid rgba(0,0,0,0.7);
+			padding: 30rpx;
+			font-size: 40rpx;
+			letter-spacing: 5rpx;
 			image{
 				margin-right: 30rpx;
-				height: 100rpx;
-				width: 100rpx;
+				height: 70rpx;
+				width: 70rpx;
 			}
 		}
 	}

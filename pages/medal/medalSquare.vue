@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		
-		<view class="header flex align-center">
+		<view class="header flex align-center justify-center">
 			<text>查看主题: </text>
 			<xflSelect 
 				class="list" 
@@ -16,13 +16,10 @@
 		
 		<view class="medals">
 			<view class="warp" v-for="(item,index) in showMedalList" :key="index">
-				<view class="medal flex align-center" @click="toMedal(item)">
+				<view class="medal flex align-center justify-center" @click="toMedal(item)">
 					<image :src="item.url" mode="aspectFit"></image>
-					<view class="name">
+					<scroll-view :scroll-x="true" class="name">
 						{{item.name}}
-					</view>
-					<scroll-view :scroll-y="true" class="content">
-						{{item.content}}
 					</scroll-view>
 				</view>
 			</view>
@@ -35,6 +32,7 @@
 			:pageSize="4"
 			:current="currentPage"
 			@change="page"
+			class="switchPage"
 		></uni-pagination>
 		<message ref="msg"></message>
 	</view>
@@ -76,7 +74,7 @@
 				this.currentPage=current
 			},
 			//查看勋章详情
-			toMedal({id}){
+			toMedal({_id}){
 				if(!this.token){
 					this.$refs.msg.show({
 						type:'error',
@@ -85,7 +83,7 @@
 					return;
 				}
 				uni.navigateTo({
-					url:'medalDetail?id='+id
+					url:'medalDetail?_id='+_id
 				})
 			}
 		},
@@ -118,6 +116,7 @@
 <style lang="scss" scoped>
 	.container{
 		.header{
+			margin-top: 30rpx;
 			width: 100%;
 			padding: 30rpx;
 			text{
@@ -141,7 +140,6 @@
 			.warp{
 				width: 50%;
 				display: inline-block;
-				height: 360rpx;
 				padding: 50rpx;
 				animation-name: zoomIn;
 				animation-duration: .25s;
@@ -149,23 +147,26 @@
 					flex-direction: column;
 					border: 1rpx #41559A solid;
 					border-radius: 10px;
-					height: 310rpx;
-					padding-top: 30rpx;
+					padding: 30rpx 0;
 					image{
-						height: 150rpx;
-						width: 150rpx;
+						height: 180rpx;
+						width: 180rpx;
 					}
 					.name{
 						font-size: 40rpx;
-					}
-					.content{
-						font-size: 30rpx;
-						height: 60rpx;
-						width: 80%;
-						word-wrap: break-word;
+						font-weight: bold;
+						margin: 10rpx 0;
+						width: 90%;
+						text-align: center;
+						white-space: nowrap;
 					}
 				}
 			}
+		}
+		.switchPage{
+			position: absolute;
+			bottom: 0;
+			width: 100%;
 		}
 	}
 </style>

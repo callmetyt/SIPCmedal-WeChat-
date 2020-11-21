@@ -21,7 +21,7 @@ module.exports=function getRank(vm){
 					//延迟插入 动画效果
 					setTimeout(()=>{
 						vm.list.push(item)
-					},(index+1)*500)
+					},(index+1)*350)
 				})
 			}else{
 				console.log(data.msg)

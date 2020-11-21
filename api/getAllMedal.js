@@ -5,6 +5,7 @@ module.exports=function getAllMedal(vm){
 		url:`${config.serverAddress}${config.route}/getAllMedal`,
 		method:'GET',
 		success({data}){
+			console.log(data)
 			if(data.status){
 				vm.allMedalList=[...data.medalRes]
 				vm.medalList=[...data.medalRes]

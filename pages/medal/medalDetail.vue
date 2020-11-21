@@ -36,7 +36,7 @@
 			this.userId=uni.getStorageSync('userId')
 			let data={
 				token:this.token,
-				medalId:option.id,
+				medalId:option._id,
 				userId:this.userId
 			}
 			this.api.getMedalInfo(data,this)

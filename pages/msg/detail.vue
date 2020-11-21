@@ -45,7 +45,7 @@
 			}
 		},
 		onLoad(option){
-			this.msgId=option.id
+			this.msgId=option._id
 			this.token=uni.getStorageSync('token')
 			this.userId=uni.getStorageSync('userId')
 			let data={

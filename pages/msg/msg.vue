@@ -2,8 +2,8 @@
 	<view class="container">
 		
 		<!-- 消息列表 -->
-		<scroll-view class="msgList">
-			<view class="msg" v-for="(item,index) in list" :key="index" @click="toDetail(item.id)">
+		<scroll-view class="msgList" :scroll-y="true">
+			<view class="msg" v-for="(item,index) in list" :key="index" @click="toDetail(item._id)">
 				<view class="warp flex justify-between align-center">
 					<view class="left flex justify-around align-center">
 						<image :src="item.isRead?'../../static/信封-开.png':'../../static/信封.png'" mode="aspectFit"></image>
@@ -42,16 +42,16 @@
 				let time=new Date(t)
 				return `${time.getFullYear()}/${time.getMonth()+1}/${time.getDate()}`
 			},
-			toDetail(id){
+			toDetail(_id){
 				uni.navigateTo({
-					url:'detail?id='+id
+					url:'detail?_id='+_id
 				})
 			},
 			deleteAllRead(){
 				let msgId=[];
 				this.list.forEach((item)=>{
 					if(item.isRead){
-						msgId.push(item.id)
+						msgId.push(item._id)
 					}
 				})
 				let data={
@@ -65,7 +65,7 @@
 				let msgId=[];
 				this.list.forEach((item)=>{
 					if(!item.isRead){
-						msgId.push(item.id)
+						msgId.push(item._id)
 					}
 				})
 				let data={

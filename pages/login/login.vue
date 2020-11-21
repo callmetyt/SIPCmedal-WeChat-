@@ -1,6 +1,8 @@
 <template>
 	<view class="container">
-		<image class="header" src="../../static/logo_s.png" mode="aspectFit"></image>
+		<view class="Hwarp flex justify-center">
+			<image class="header" src="../../static/logo_s.png" mode="aspectFit"></image>
+		</view>
 		<view class="warp">
 			<text>学号：</text>
 			<input type="text" v-model="userId" />
@@ -47,9 +49,12 @@
 	}
 </script>
 <style lang="scss" scoped>
-		.header{
-			height: 250rpx;
-			margin-top: 150rpx;
+		.Hwarp{
+			.header{
+				height: 250rpx;
+				width: 250rpx;
+				margin-top: 150rpx;
+			}
 		}
 		.warp{
 			display: flex;
@@ -62,14 +67,16 @@
 			}
 			input{
 				border: 5rpx solid #2F4B7E;
-				border-radius: 30rpx;
+				letter-spacing: 3rpx;
+				border-radius: 20rpx;
 				padding-left: 20rpx;
 			}
 		}
 		.action{
-			margin-top: 100rpx;
+			margin: 100rpx auto 0 auto;
 			display: flex;
 			justify-content: space-around;
+			width: 80%;
 			.cu-btn{
 				color: #fff;
 			}

@@ -9,7 +9,7 @@
 				<view>勋章数</view>
 			</view>
 			<view class="baseInfo flex justify-center align-center">
-				<image :src="avatar" mode="aspectFit"></image>
+				<image :src="avatar?avatar:'../static/User%20Secret.png'" mode="aspectFit"></image>
 				<view>{{userName}}</view>
 			</view>
 			<view class="rankNum flex" @click="toRank">
@@ -22,7 +22,7 @@
 		<!-- 勋章列表 -->
 		<view class="medals flex">
 			<view class="warp" v-for="(item,index) in showList" :key="index">
-				<view class="medal flex" @click="toMedal(item.id)">
+				<view class="medal flex" @click="toMedal(item._id)">
 					<image :src="item.url" mode="aspectFit"></image>
 					<view>{{item.name}}</view>
 				</view>
@@ -36,10 +36,11 @@
 			:pageSize="4"
 			:current="currentPage"
 			@change="page"
+			class="pageSwitch"
 		></uni-pagination>
 		<message ref="msg"></message>
 		
-		<button type="default" v-if="isOther" @click="toMine">返回我的勋章墙</button>
+		<button class="back" type="default" v-if="isOther" @click="toMine">返回我的勋章墙</button>
 		
 	</view>
 </template>
@@ -67,12 +68,12 @@
 					url:'rank/rank'
 				})
 			},
-			toMedal(id){
-				if(!id){
+			toMedal(_id){
+				if(!_id){
 					return;
 				}
 				uni.navigateTo({
-					url:'medal/medalDetail?id='+id
+					url:'medal/medalDetail?_id='+_id
 				})
 			},
 			toMine(){
@@ -184,6 +185,14 @@
 					}
 				}
 			}
+		}
+		.pageSwitch{
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+		}
+		.back{
+			
 		}
 	}
 </style>
